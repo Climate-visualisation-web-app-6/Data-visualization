@@ -19,36 +19,16 @@ app.listen(8080, ()=>{
     })
   })
 
-app.get("/globalData", (req, resp) => {
-    database.collection("global_data").find({}).toArray((err,res)=>{
-        if(err) throw err
-    resp.send(res)
+
+app.get("/v1_yearly", (req, resp)=>{
+    database.collection("v1_yearly").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
     });
 })
 
-app.get("/nothernHemisphere", (req, resp) => {
-    database.collection("nothernhemisphere").find({}).toArray((err,res)=>{
-        if(err) throw err
-    resp.send(res)
-    });
-})
-
-app.get("/southernHemisphere", (req, resp) => {
-    database.collection("southernHemisphere").find({}).toArray((err,res)=>{
-        if(err) throw err
-    resp.send(res)
-    });
-})
-
-app.get("/southernHemispere_monthly", (req, resp) => {
-    database.collection("southernHemispere_monthly").find({}).toArray((err,res)=>{
-        if(err) throw err
-    resp.send(res)
-    });
-})
-
-app.get("/nHem_Monthly", (req, resp)=>{
-    database.collection("nHem_Monthly").find({}).toArray((err,res) =>{
+app.get("/v1_monthly", (req, resp)=>{
+    database.collection("v1_monthly").find({}).toArray((err,res) =>{
         if (err) throw err
        resp.send(res) 
     });
