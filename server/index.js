@@ -46,3 +46,10 @@ app.get("/southernHemispere_monthly", (req, resp) => {
     resp.send(res)
     });
 })
+
+app.get("/nHem_Monthly", (req, resp)=>{
+    database.collection("nHem_Monthly").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
