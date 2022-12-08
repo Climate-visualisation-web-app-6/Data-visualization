@@ -31,8 +31,11 @@ function Vone() {
 
   const [voneAnnual, setVoneAnnual] = useState([{}])
   const [voneMonthly, setVoneMonthly] = useState([{}])
+  const [ vtwoTemp, setVtwoTemp] = useState([{}])
 
     useEffect( ()=>{
+
+       
 
             fetch("/v1_yearly")
             .then( response => response.json() )
@@ -49,8 +52,29 @@ function Vone() {
                     setVoneMonthly(data)
                 }
             )
+               
+            fetch("/v2_temp")
+            .then( response => response.json() )
+            .then(
+                data => {
+                  data.map((v,i)=>{
+                    
+                    if( data[i]['time'].length === 1 ){
+                      data[i]['time'] = "000"+data[i]['time']
+                    }
+                    else if(data[i]['time'].length === 2){
+                      data[i]['time'] = "00"+data[i]['time']
+                    }
+                    else if(data[i]['time'].length === 3){
+                      data[i]['time'] = "0"+data[i]['time']
+                    }
 
-  
+                    data[i]['time'] = data[i]["time"]+"-01-01"
+                    // console.log(data[i]['time'])
+                  })
+                  setVtwoTemp(data)
+            }
+            )
       }, [])
 
   return (
@@ -58,8 +82,9 @@ function Vone() {
         <div style={{margin: '12px', marginTop: '60px'}}>
         <Line
             data={{
-                // labels: nHm.map(v => v['Time']),
+               
                 datasets: [
+
                     {
                         data: voneAnnual.map(v => {
                             return {x: v['timeInAnnual'], y: v["globaAnnual"]}
@@ -115,6 +140,16 @@ function Vone() {
                         borderColor: 'rgb(212, 150, 1)',
                         backgroundColor: 'rgba(212, 150, 1, 0.5)',
                     },
+                   
+                    {
+                        data: vtwoTemp.map((v, i)=> {
+                            return {x: v['time'], y: v["temperature"]}
+                        }),
+                        label: "2000 Years of Temprature",
+                        borderColor: 'rgb(6, 82, 255)',
+                        backgroundColor: 'rgba(6, 82, 255, 0.5)',
+                    },
+                   
                 ]
             }}
             height={400}
@@ -127,10 +162,10 @@ function Vone() {
                     type: 'time',
                     time: {
                       displayFormats: {
-                          quarter: 'MMM YYYY'
+                          quarter: 'DD MM YYYY'
                       },
-                      unit: "month",
-                      tooltipFormat: "yyyy/mm/dd",
+                      unit: "year",
+                    //   tooltipFormat: "yyyy/mm/dd",
                   },
                       adapters: { 
                         date: {
@@ -140,13 +175,7 @@ function Vone() {
                   }
               },
                 plugins: {   
-                    // tooltip: {
-                    //     callbacks: {
-                    //       title: function () {
-                    //         return "my tittle";
-                    //       }
-                    //     }
-                    //   },
+                    
                     zoom: {
                         pan: {
                             enabled: true

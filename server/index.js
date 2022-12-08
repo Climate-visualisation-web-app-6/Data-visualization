@@ -33,3 +33,40 @@ app.get("/v1_monthly", (req, resp)=>{
        resp.send(res) 
     });
 })
+
+app.get("/v2_temp", (req, resp)=>{
+    database.collection("v2_temp").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
+app.get("/v3_monthly", (req, resp)=>{
+    database.collection("v3_monthly").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
+app.get("/v3_yearly", (req, resp)=>{
+    database.collection("v3_yearly").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
+app.get("/V4_yearly_a", (req, resp)=>{
+    database.collection("V4_yearly_a").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
+app.get("/V4_yearly_b", (req, resp)=>{
+    database.collection("V4_yearly_b").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
+app.get("/V4_yearly_c", (req, resp)=>{
+    database.collection("V4_yearly_c").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
