@@ -3,6 +3,8 @@ import Vone from './components/Vone'
 import Vthree from './components/Vthree'
 import Vfive from './components/Vfive'
 import Vsix from './components/Vsix'
+import Vseven from './components/Vseven'
+import Vnine from './components/Vnine'
 function App() {
 
   return (
@@ -15,6 +17,10 @@ function App() {
       <Vfive/>
       <h1>V6 visualization </h1>
       <Vsix/>
+      <h1>V7 visualization</h1>
+      <Vseven/>
+      <h1>V9 visualization</h1>
+      <Vnine/>
     </div> 
   )
 }
