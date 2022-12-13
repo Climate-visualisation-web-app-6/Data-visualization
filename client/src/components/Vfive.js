@@ -56,35 +56,35 @@ return (
                         }),
                         
                         label: "CO2 Mesurments",
-                        borderColor: 'rgb(53, 162, 235)',
-                        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                        borderColor: 'rgb(255, 99, 132)',
+                      backgroundColor: 'rgba(255, 99, 132, 0.5)',
                     },
                     
 
                   ]
                 }}
-                height={400}
+                height={300}
                 width={600}
                 options={{
                     maintainAspectRatio: false,
                     responsive: true,
-                    scales: {
-                      x: {
-                        type: 'time',
-                        time: {
-                          displayFormats: {
-                              quarter: ' MM YYYY'
-                          },
-                          unit: "year",
+                  //   scales: {
+                  //     x: {
+                  //       type: 'time',
+                  //       time: {
+                  //         displayFormats: {
+                  //             quarter: ' MM YYYY'
+                  //         },
+                  //         unit: "year",
                       
-                      },
-                          adapters: { 
-                            date: {
-                              locale: enUS, 
-                            },
-                          }, 
-                      }
-                  },
+                  //     },
+                  //         adapters: { 
+                  //           date: {
+                  //             locale: enUS, 
+                  //           },
+                  //         }, 
+                  //     }
+                  // },
                     plugins: {   
                         
                         zoom: {
