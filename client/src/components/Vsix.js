@@ -29,23 +29,20 @@ import {
 function Vsix() {
 
 const [vsixco2, setVsixCo2] = useState([{}])
-const [vsixDatab, setVsixDataB] = useState([{}])
+
 
 useEffect( ()=>{
 fetch("/v6_yearly_a")
 .then( response => response.json() )
     .then(
         data => {
+
+
+
             setVsixCo2(data)
         }
 )
-fetch("/v6_data_b")
-.then( response => response.json() )
-    .then(
-        data => {
-            setVsixDataB(data)
-        }
-)
+
     }
 , [] )
 
@@ -60,7 +57,7 @@ return (
 
                     {
                         data: vsixco2.map(v => {
-                            return {x: v['time'], y: v["CO2Measurement"]}
+                            return {x: v['time'], y: v["CO2Measurement" ]}
                         }),
                         
                         label: "CO2 Mesurments a",
@@ -68,15 +65,7 @@ return (
                         backgroundColor: 'rgba(53, 162, 235, 0.5)',
                     },
 
-                    {
-                        data: vsixDatab.map(v => {
-                            return {x: v['year'], y: v["co2"]}
-                        }),
-                        
-                        label: "CO2 Mesurments b",
-                        borderColor: 'rgb(212, 150, 1)',
-                        backgroundColor: 'rgba(212, 150, 1, 0.5)',
-                    },
+                    
                     
 
                   ]
@@ -86,23 +75,23 @@ return (
                 options={{
                     maintainAspectRatio: false,
                     responsive: true,
-                    scales: {
-                      x: {
-                        type: 'time',
-                        time: {
-                          displayFormats: {
-                              quarter: ' MM YYYY'
-                          },
-                          unit: "year",
+                  //   scales: {
+                  //     x: {
+                  //       type: 'time',
+                  //       time: {
+                  //         displayFormats: {
+                  //             quarter: ' MM YYYY'
+                  //         },
+                  //         unit: "year",
                       
-                      },
-                          adapters: { 
-                            date: {
-                              locale: enUS, 
-                            },
-                          }, 
-                      }
-                  },
+                  //     },
+                  //         adapters: { 
+                  //           date: {
+                  //             locale: enUS, 
+                  //           },
+                  //         }, 
+                  //     }
+                  // },
                     plugins: {   
                         
                         zoom: {

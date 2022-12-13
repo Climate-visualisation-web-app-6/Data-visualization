@@ -70,3 +70,34 @@ app.get("/V4_yearly_c", (req, resp)=>{
        resp.send(res) 
     });
 })
+app.get("/v7_ppm_a", (req, resp)=>{
+    database.collection("v7_ppm_a").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
+app.get("/v5_co2", (req, resp)=>{
+    database.collection("v5_co2").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
+app.get("/v6_yearly_a", (req, resp)=>{
+    database.collection("v6_yearly_a").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
+
+app.get("/v7_stc_b", (req, resp)=>{
+    database.collection("v7_stc_b").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
+app.get("/v9", (req, resp)=>{
+    database.collection("V9").find({}).toArray((err,res) =>{
+        if (err) throw err
+       resp.send(res) 
+    });
+})
