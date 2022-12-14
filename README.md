@@ -37,7 +37,7 @@ This application runs in node.js installed terminal and JavaScript installed web
 GitHub link: 
  https://github.com/Climate-visualisation-web-app-6/Data-visualization
 
-Server link:
+Server link: https://high-tenure-371622.dt.r.appspot.com/
 
 Team members:
 Manish Panthi
