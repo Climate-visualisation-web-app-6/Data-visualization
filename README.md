@@ -1,6 +1,4 @@
-# Data-visualization
-In this project we will be visualizing the data for climate change from past several years.
-ADVANCED WEB APPLICATIONS PROJECT DOCUMENTATION
+<h1>Climate Data Visualization</h1>
 
 Introduction:
 We have designed and implemented a data visualization application project. This project deals with displaying temperature and co2 data from thousands of years related to climate change. The project has been informative, efficient, educative and appealing. 
